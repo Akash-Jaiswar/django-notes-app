@@ -55,7 +55,7 @@ version: "3.8"
 
 services:
   django_app:
-    image: notes-app:latest   # 🔥 same image name
+    image: "akashj082/notes-app:latest"   # 🔥 same image name
     container_name: "django_cont"
     ports:
       - "8000:8000"
