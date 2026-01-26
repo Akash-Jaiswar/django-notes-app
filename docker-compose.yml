@@ -53,6 +53,8 @@ version: "3.8"
 #       - notes-app-nw
 
 
+# new comment added for checking scm poll for github
+
 services:
   django_app:
     image: "akashj082/notes-app:latest"   # 🔥 same image name
