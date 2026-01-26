@@ -54,6 +54,7 @@ version: "3.8"
 
 
 # new comment added for checking scm poll for github
+# some comments added
 
 services:
   django_app:
