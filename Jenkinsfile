@@ -39,7 +39,7 @@ pipeline {
         
         stage("Hello") {
             steps {
-                script {
+                script{
                     hello()
                 }
             }
@@ -47,38 +47,43 @@ pipeline {
         
         stage("Code") {
             steps {
-                script {
+               script {
                 clone("https://github.com/Akash-Jaiswar/django-notes-app.git", "main")
-                }
+               }
             }
         }
+        
         stage("Build") {
             steps {
-                echo "This is building the code"
+                echo "This testing the code"
                 sh "docker build -t notes-app:latest ."
             }
-        } 
+        }
+        
         stage("Test") {
             steps {
                 echo "This is testing the code"
             }
-        } 
+        }
+        
         stage("Push to Dockerhub") {
             steps {
-                script {
-                docker_push(
-                    imageName: "notes-app",
-                    imageTag: "latest",
-                    credentials: "dockerHubCred"
-                )
+                 
+                 script {
+                    docker_push(
+                        imageName: 'notes-app',
+                        imageTag: 'latest',
+                        credentials: 'dockerHubCred'
+                    )
                 }
             }
-        } 
+        }
+        
         stage("Deploy") {
             steps {
                 echo "This is deploying the code"
                 sh "docker compose up -d"
-            }
-        } 
+            }    
+        }
     }
 }
